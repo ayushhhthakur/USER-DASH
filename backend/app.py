@@ -225,9 +225,9 @@ def upload_file():
         if extracted_text is None:
             return jsonify({'error': 'Failed to extract text from PDF'}), 500
         
-        logging.debug(f"Extracted text: {extracted_text[:500]}...")  # Log first 500 characters
-        if len(extracted_text)>4800:
-            extracted_text = extracted_text[:4500]
+        logging.debug(f"Extracted text: {extracted_text[:15000]}...")  # Log first 500 characters
+        if len(extracted_text)>15000:
+            extracted_text = extracted_text[:15000]
         data = {
             "messages": [
                 {
